@@ -1,4 +1,4 @@
-package com.github.cleitonalmeida1.treinamentospringboot;
+package com.github.cleitonalmeida1.treinamentospringboot.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 @Entity
@@ -16,16 +17,19 @@ public class Usuario {
 
     @Id
     @Column(name = "us_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_produto")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_usuario")
     private Integer id;
 
     @Column(name = "us_nome")
+    @NotEmpty(message = "{campo.nome.obrigatorio}")
     private String nome;
 
     @Column(name = "us_login")
+    @NotEmpty(message = "{campo.login.obrigatorio]")
     private String login;
 
     @Column(name = "us_senha")
+    @NotEmpty(message = "{campo.senha.obrigatorio}")
     private String senha;
 
     @Column(name = "us_admin")
@@ -63,7 +67,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Boolean getAdmin() {
+    public Boolean isAdmin() {
         return admin;
     }
 

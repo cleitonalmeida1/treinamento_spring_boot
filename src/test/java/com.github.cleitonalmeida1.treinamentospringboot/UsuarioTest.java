@@ -1,5 +1,6 @@
 package com.github.cleitonalmeida1.treinamentospringboot;
 
+import com.github.cleitonalmeida1.treinamentospringboot.entity.Usuario;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +27,7 @@ public class UsuarioTest {
         Assert.assertEquals(nome, usuario.getNome());
         Assert.assertEquals(login, usuario.getLogin());
         Assert.assertEquals(senha, usuario.getSenha());
-        Assert.assertEquals(admin, usuario.getAdmin());
+        Assert.assertEquals(admin, usuario.isAdmin());
     }
 
     @Test
