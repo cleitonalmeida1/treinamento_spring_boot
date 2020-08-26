@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/api/usuario")
 public class UsuarioRestController {
 
-    //TODO Criar teste unitário de integração
+    //TODO Criar cobrir classes restantes
     //TODO Criar métodos: atualizar, deletar e buscarTodosPorFiltro
 
     @Autowired

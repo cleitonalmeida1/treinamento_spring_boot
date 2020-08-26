@@ -1,4 +1,4 @@
-package com.github.cleitonalmeida1.treinamentospringboot;
+package com.github.cleitonalmeida1.treinamentospringboot.entity;
 
 import com.github.cleitonalmeida1.treinamentospringboot.entity.Usuario;
 import org.junit.Assert;
