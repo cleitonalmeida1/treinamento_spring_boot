@@ -86,4 +86,19 @@ public class UsuarioServiceImplTest {
         when(usuarioRepository.findByLogin(josefina.getLogin())).thenReturn(Optional.empty());
         usuarioService.loadUserByUsername(josefina.getLogin());
     }
+
+    @Test
+    public void deveExcluirUmUsuarioTest() {
+        when(usuarioRepository.findById(josefina.getId())).thenReturn(Optional.of(josefina));
+        usuarioService.deletar(josefina.getId());
+
+        verify(usuarioRepository).delete(usuarioCaptor.capture());
+        Assert.assertEquals(usuarioCaptor.getValue().getNome(), josefina.getNome());
+    }
+
+    @Test(expected = ResponseStatusException.class)
+    public void deveRetornarUmaExceptionAoExcluirUmNaoEncontradoTest() {
+        when(usuarioRepository.findById(josefina.getId())).thenReturn(Optional.empty());
+        usuarioService.deletar(josefina.getId());
+    }
 }
